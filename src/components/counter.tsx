@@ -7,17 +7,33 @@ class Counter extends Component<IProps, Count> {
 	constructor(props: any) {
 		super(props);
 		this.state = {
-			number: 0,
+			number: null,
 		};
 	}
 
-	format = (): number | string => {
+	componentDidMount() {
+		this.setState({
+			number: 0
+		});
+	}
+
+	valueIsSet = (value: number | null): boolean => {
+		return !(!value && value !== 0);
+	};
+
+	format = (): number | string | null => {
 		const { number } = this.state;
-		return number === 0 ? "Zero" : number;
+		return this.valueIsSet(number)
+			? number === 0
+				? "Zero"
+				: number
+			: "State Number not set";
 	};
 
 	iterateCounter = (): void => {
-		if (this.state) this.setState({ number: this.state.number + 1 });
+		if (this.valueIsSet(this.state.number)) {
+			this.setState({ number: this.state.number! + 1 });
+		}
 	};
 
 	render() {
