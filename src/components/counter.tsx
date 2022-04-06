@@ -37,9 +37,13 @@ class Counter extends Component<IProps, Count> {
 	};
 
 	render() {
+
+		let classes = "badge m-2 bg-";
+		classes += this.state.number === 0 ? "warning" : "info";
+
 		return (
 			<React.Fragment>
-				<span className="badge bg-info m-2">{this.format()}</span>
+				<span className={classes}>{this.format()}</span>
 				<button
 					className="btn btn-success btn-sm"
 					onClick={this.iterateCounter}
