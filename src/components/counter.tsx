@@ -1,23 +1,24 @@
 import React, { Component } from "react";
+import { Count } from "../types/count";
 
 class Counter extends Component {
-	state = {
-		count: 0,
+	state: Count = {
+		number: 0,
 	};
 
 	render() {
 		return (
 			<React.Fragment>
-				<h1>{this.formatCount()}</h1>
+				<h1>{this.format()}</h1>
 				<button>Increment</button>
 			</React.Fragment>
 		);
 	}
 
-	formatCount() {
-		const { count } = this.state;
-		return count === 0 ? "Zero" : count;
-	}
+	format = (): number | string => {
+		const { number } = this.state;
+		return number === 0 ? "Zero" : number;
+	};
 }
 
 export default Counter;
