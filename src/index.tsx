@@ -1,8 +1,10 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import reportWebVitals from "./reportWebVitals";
 import Counter from "./components/counter";
+
 
 const container = document.getElementById("root") as HTMLElement;
 const root = createRoot(container);

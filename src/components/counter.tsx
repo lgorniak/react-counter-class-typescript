@@ -13,7 +13,7 @@ class Counter extends Component<IProps, Count> {
 
 	componentDidMount() {
 		this.setState({
-			number: 0
+			number: 0,
 		});
 	}
 
@@ -39,8 +39,13 @@ class Counter extends Component<IProps, Count> {
 	render() {
 		return (
 			<React.Fragment>
-				<h1>{this.format()}</h1>
-				<button onClick={this.iterateCounter}>Increment</button>
+				<span className="badge bg-info m-2">{this.format()}</span>
+				<button
+					className="btn btn-success btn-sm"
+					onClick={this.iterateCounter}
+				>
+					Increment
+				</button>
 			</React.Fragment>
 		);
 	}
